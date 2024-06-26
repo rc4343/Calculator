@@ -7,7 +7,7 @@ const Calculator: React.FC = () => {
   const handleClick = (value: string) => {
     if (value === '=') {
       try {
-        const roundedResult = Math.round(eval(result) + Number.EPSILON) * 100 / 100;
+        const roundedResult = Math.round((parseFloat(result) || 0) + Number.EPSILON) * 100 / 100;
         if (isNaN(roundedResult) || roundedResult === Infinity) {
           setResult('Error');
           setErrorMessage('Error: Cannot divide by zero');
